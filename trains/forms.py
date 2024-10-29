@@ -33,6 +33,7 @@ class TrainForm(forms.ModelForm):
         })
     )
 
+
     class Meta:
         model = Train
         fields = '__all__'

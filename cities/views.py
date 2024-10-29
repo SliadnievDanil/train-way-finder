@@ -8,6 +8,7 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView,
 from cities.forms import HtmlForm, CityForm
 from cities.models import City
 
+
 __all__ = (
     'home', 'CityDetailView', 'CityCreateView', 'CityUpdateView', 'CityDeleteView',
     'CityListView',

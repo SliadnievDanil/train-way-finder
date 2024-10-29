@@ -8,6 +8,7 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView,
 from trains.forms import TrainForm
 from trains.models import Train
 
+
 __all__ = (
     'home', 'TrainListView', 'TrainDetailView',
     'TrainCreateView', 'TrainUpdateView', 'TrainDeleteView',
