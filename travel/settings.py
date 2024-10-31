@@ -30,7 +30,8 @@ INSTALLED_APPS = [
 
     # local apps
     'cities',
-    'trains'
+    'trains',
+    'routes',
 ]
 
 MIDDLEWARE = [
@@ -112,3 +113,42 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugTrue'
+        }
+    },
+    "formatters": {
+        "verbose": {
+            "format":
+                "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR.joinpath('log/application.log'),
+        }
+    },
+    "loggers": {
+        "django.request": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+        "django.db.backends": {
+            "level": "DEBUG",
+            "handlers": ["file"],
+        },
+    },
+}
