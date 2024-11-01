@@ -15,7 +15,7 @@ SECRET_KEY = '!i_ao&b$^cc+)&bmuzrhbxi_hs49#9s4m^4=j=$!u-h14ebg)='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -117,15 +117,16 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugTrue'
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
         }
     },
     "formatters": {
         "verbose": {
             "format":
-                "{levelname} {asctime} {module} {message}",
-            "style": "{",
+            "{levelname} {asctime} {module} {message}",
+            "style":
+            "{",
         },
     },
     "handlers": {
@@ -138,6 +139,7 @@ LOGGING = {
             "level": "DEBUG",
             "class": "logging.FileHandler",
             "filename": BASE_DIR.joinpath('log/application.log'),
+            'formatter': 'verbose',
         }
     },
     "loggers": {
