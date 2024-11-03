@@ -26,7 +26,7 @@ def home(request, pk=None):
 
 
 class TrainListView(ListView):
-    paginate_by = 5
+    paginate_by = 10
     model = Train
     template_name = 'trains/home.html'
 
@@ -54,7 +54,7 @@ class TrainUpdateView(SuccessMessageMixin, UpdateView):
 
 class TrainDeleteView(DeleteView):
     model = Train
-    template_name = 'trains/delete.html'
+    #template_name = 'trains/delete.html'
     success_url = reverse_lazy('trains:home')
 
     def get(self, request, *args, **kwargs):
